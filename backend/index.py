@@ -17,17 +17,10 @@ while True:
         continue
     break
 
-def issqn_rate_range(rate):
-    user_input_rate = rate
-    user_input_rate / 100
-    return user_input_rate
-
-print ('Qual a alíquota de ISSQN: ')
-issqn_rate = pyip.inputCustom(issqn_rate_range, min=0.02, max=0.05)
-
-# issqn_retention_of_moth = input('Qual o valor da retenção: ')
-# pis_retention_of_moth = input('Qual o valor da retenção: ')
-# cofins_retention_of_moth = input('Qual o valor da retenção: ')
+issqn_rate = float(input('Qual a alíquota do ISSQN: '))
+issqn_retention_of_moth = input('Qual o valor da retenção: ')
+pis_retention_of_moth = input('Qual o valor da retenção: ')
+cofins_retention_of_moth = input('Qual o valor da retenção: ')
 
 def pis_calculation(revenues_of_month):
     pis_value = revenues_of_month * PIS_RATE
@@ -48,4 +41,4 @@ def show_the_results():
     print(issqn_calculation(revenues_of_month, issqn_rate))
 
 if __name__ == "__main__":
-    pass
+    show_the_results()
