@@ -19,6 +19,7 @@ while True:
 
 def validation_if_input_isNumber():
     
+
 def valation_input_issqn_rate():
     while True:
         print('ola')
@@ -38,7 +39,8 @@ def valation_input_issqn_rate():
 
 # working in a new branch
 print('Informe a alíquota de ISSQN')
-issqn_rate = valation_input_issqn_rate()
+issqn_rate = input('Informe a alíquota de ISSQN: ')
+issqn_rate = float(issqn_rate)
 issqn_retention_of_moth = input('Qual o valor da retenção: ')
 pis_retention_of_moth = input('Qual o valor da retenção: ')
 cofins_retention_of_moth = input('Qual o valor da retenção: ')
@@ -57,9 +59,11 @@ def issqn_calculation(revenues_of_month, issqn_rate):
 
 def show_the_results():
 
-    print(pis_calculation(revenues_of_month))
-    print(cofins_calculation(revenues_of_month))
-    print(issqn_calculation(revenues_of_month, issqn_rate))
+    print("PIS: ", pis_calculation(revenues_of_month))
+    print("COFINS: ",cofins_calculation(revenues_of_month))
+    print("ISSQN: ",issqn_calculation(revenues_of_month, issqn_rate))
+
+# master
 
 if __name__ == "__main__":
     show_the_results()
