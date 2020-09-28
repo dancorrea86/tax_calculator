@@ -46,3 +46,4 @@ def get_effective_rate(revenues_twelve_months):
 
 print (get_effective_rate(revenues_twelve_months))
 
+print ('olá')
