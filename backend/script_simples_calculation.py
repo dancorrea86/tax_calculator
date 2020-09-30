@@ -44,4 +44,3 @@ def get_effective_rate(revenues_twelve_months):
     return effective_rate
 
 
-print (get_effective_rate(revenues_twelve_months))
