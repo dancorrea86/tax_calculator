@@ -1,4 +1,4 @@
-import pyinputplus as pyip
+#import pyinputplus as pyip
 
 PIS_RATE = 0.0065
 COFINS_RATE = 0.03
@@ -18,7 +18,7 @@ while True:
     break
 
 def validation_if_input_isNumber():
-    
+    pass
 
 def valation_input_issqn_rate():
     while True:
