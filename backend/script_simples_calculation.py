@@ -14,10 +14,10 @@ ANEXOV =   { 'faixa1': [0.155, 0     ],
              'faixa5': [0.230, 62100 ],
              'faixa6': [0.305, 540000],}
 
-revenues_twelve_months = input('Valor faturamento últimos 12 meses? ')
+# revenues_twelve_months = input('Valor faturamento últimos 12 meses? ')
 
 # Validação do input
-revenues_twelve_months = float(revenues_twelve_months)
+# revenues_twelve_months = float(revenues_twelve_months)
 
 def get_tax_range_simple(revenues_twelve_months):
     if (revenues_twelve_months < 180000):
@@ -41,6 +41,8 @@ def get_effective_rate(revenues_twelve_months):
     deduction = ANEXOIII['faixa' + tax_range][1]
     rate = ANEXOIII['faixa' + tax_range][0]
     effective_rate = ( ( revenues_twelve_months * rate ) - deduction ) / revenues_twelve_months
+    effective_rate = effective_rate * 100
     return effective_rate
 
+# print (get_effective_rate(revenues_twelve_months))
 
