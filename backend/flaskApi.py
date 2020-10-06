@@ -1,13 +1,19 @@
-import script_simples_calculation
+from script_simples_calculation import SimplesTaxCalculator
 
 from flask import Flask, request, jsonify
 app = Flask(__name__)
 @app.route('/api/', methods=["POST"])
 def main_interface():
     response = request.form['line']
-    valor = script_simples_calculation.get_effective_rate(float(response))
-    valor = str(valor)
-    # print(response, line)
-    return (valor)
+    response2 = request.form['line2']
+    
+    # valor = script_simples_calculation.SimplesTaxCalculator.get_effective_rate(float(response))
+
+    valor = SimplesTaxCalculator(float(response), response2)
+    valor2 = valor.get_effective_rate()
+    print (valor2)
+    
+    return (str(valor2))
+
 if __name__ == '__main__':
     app.run(debug=True)
