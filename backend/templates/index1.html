@@ -6,15 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    <p>Ola</p>
-    <form action="display" method="POST">
-        <input name="line">
-        <button>fffffffffffffff</button>
-        <ul>
-            {% for item in data %}
-                <li>{{data.name}}</li>
-            {% endfor %}
-        </ul>
+    <h1>Resultado</h1>
+    <ul>
+        <li>{{data}}</li>
+    </ul>
+    <form action="http://127.0.0.1:5000/api/">
+        <button type="submit"></button>
     </form>
 </body>
 </html>

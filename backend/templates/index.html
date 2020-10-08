@@ -3,14 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
     <p>Ola</p>
     <form action="http://127.0.0.1:5000/api/" method="POST">
         <input name="line">
-        <input name="line2">
+        <select name="line2">
+            <option value="ANEXOIII">ANEXOIII</option>
+            <option value="ANEXOV">ANEXOV</option>
+          </select> 
         <button>Display</button>
     </form>
+    <ul>
+        <li>{{data}}</li>
+    </ul>
 </body>
 </html>
