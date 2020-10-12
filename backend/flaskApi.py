@@ -2,6 +2,7 @@ from script_simples_calculation import SimplesTaxCalculator
 from flask import render_template
 
 from flask import Flask, request, jsonify
+
 app = Flask(__name__)
 @app.route('/api/', methods=["POST"])
 def main_interface():
