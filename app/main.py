@@ -28,7 +28,6 @@ def simple_calc():
             revenue_month = float(revenue_month)
             tax_rate = link_calculator(revenues_twelve_months, attchament_choose, payroll_twelve_months, revenue_month)
             tax = str(revenue_month * (float(tax_rate)/100))
-            print (tax_rate, revenue_month, tax)
         except ValueError:
             error = "Please supply both first and last name"
 
