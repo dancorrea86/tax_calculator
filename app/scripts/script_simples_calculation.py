@@ -19,7 +19,6 @@ class SimplesTaxCalculator():
         self.revenues_twelve_months = float(revenues_twelve_months)
         self.payroll = float(payroll_twelve_months)
         self.revenue_month = float(revenue_month)
-        print (self.payroll / self.revenues_twelve_months)
         self.attachment = getattr(self, attachment) if (self.payroll / self.revenues_twelve_months) < 0.28 else getattr(self, 'ANEXOIII')
 
     def get_tax_range_simple(self):
@@ -43,6 +42,7 @@ class SimplesTaxCalculator():
         tax_range = self.get_tax_range_simple()
         deduction = self.attachment['faixa' + tax_range][1]
         rate = self.attachment['faixa' + tax_range][0]
+        rate_with_retention = self.attachment['faixa' + tax_range][2]
         effective_rate = ( ( self.revenues_twelve_months * rate ) - deduction ) / self.revenues_twelve_months
-        effective_rate = effective_rate * 100
-        return effective_rate
+        effective_rate = format(effective_rate * 100, '.2f')
+        return effective_rate, rate_with_retention

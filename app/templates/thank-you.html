@@ -3,9 +3,8 @@
 {% block title %}Thanks{% endblock %}
 
 {% block content %}
-<div class="container-fluid">
     <h1>Obrigado por usar a calculadora!</h1>
-    <p>A alíquota do Simples Nacional é: {{data}}</p>
+    <p>A alíquota do Simples Nacional é: {{data}}%</p>
+    <p>A alíquota do Simples Nacional com retenção de ISSQN é: {{data_retention}}%</p>
     <p>O valor do Simples Nacional é: {{tax}}</p>
-</div>
 {% endblock %}
