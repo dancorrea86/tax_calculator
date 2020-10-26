@@ -68,6 +68,7 @@ folha_pagamento_12meses = 50400
 faturamento_mes = 20000
 faturamento_mes_retenção = 10000
 
+# teste 
 app = SimplesTaxCalculator(faturamento_12meses, anexo, folha_pagamento_12meses, faturamento_mes, faturamento_mes_retenção)
 print(app.get_effective_rate())
 print(app.get_effective_rate_with_retention())
