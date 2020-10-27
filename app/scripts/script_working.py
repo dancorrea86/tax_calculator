@@ -47,19 +47,32 @@ class SimplesTaxCalculator():
 
     def get_effective_rate(self):
         effective_rate = ( ( self.revenues_twelve_months * self.rate ) - self.deduction ) / self.revenues_twelve_months
-        effective_rate = format(effective_rate * 100, '.2f')
+        # effective_rate = format(effective_rate, '.2f')
         return effective_rate
 
     def get_effective_rate_with_retention(self):
         effective_rate_with_retention = self.effective_rate - ( self.effective_rate * self.issqn_porcentage )
-        effective_rate_with_retention = format( effective_rate_with_retention, '.2f' )
+        # effective_rate_with_retention = format( effective_rate_with_retention, '.2f' )
         return effective_rate_with_retention
 
     def calculate_tax(self):
         tax_without_retention = ( self.revenue_month - self.revenue_month_retention ) * self.effective_rate
+
         tax_with_retention = self.revenue_month_retention * self.effective_rate_with_retention
+
         total_tax = tax_without_retention + tax_with_retention
+
         return total_tax
+
+    def return_results(self):
+        effective_rate = self.format_numbers(self.get_effective_rate() * 100)
+        effective_rate_with_retention = self.format_numbers(self.get_effective_rate_with_retention() * 100)
+        tax = self.format_numbers(self.calculate_tax())
+        return effective_rate, effective_rate_with_retention, tax
+
+    def format_numbers(self, number):
+        number = format(number, '.2f').replace('.',',')
+        return number
 
 
 faturamento_12meses = 180000
@@ -70,6 +83,4 @@ faturamento_mes_retenção = 10000
 
 # teste 
 app = SimplesTaxCalculator(faturamento_12meses, anexo, folha_pagamento_12meses, faturamento_mes, faturamento_mes_retenção)
-print(app.get_effective_rate())
-print(app.get_effective_rate_with_retention())
-print(app.calculate_tax())
+print (app.return_results())

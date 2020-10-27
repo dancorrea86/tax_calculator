@@ -2,7 +2,8 @@
 from flask import Flask, render_template, request
 
 # Import modulos próprios
-from scripts.script_simples_calculation import SimplesTaxCalculator
+from scripts.script_working import SimplesTaxCalculator
+# from scripts.script_simples_calculation import SimplesTaxCalculator
 
 # Call the Flask in the application
 app = Flask(__name__)
@@ -28,33 +29,20 @@ def simple_calc():
             revenue_month = float(revenue_month)
             revenue_month_retention = float(revenue_month_retention)
 
-            tax_rate = link_calculator(revenues_twelve_months, attchament_choose, payroll_twelve_months, revenue_month)
+            app = SimplesTaxCalculator(revenues_twelve_months, attchament_choose, payroll_twelve_months, revenue_month, revenue_month_retention)
+            values = app.return_results()
+            print(values)
+            # tax_rate = link_calculator(revenues_twelve_months, attchament_choose, payroll_twelve_months, revenue_month)
 
-            tax = calculate_tax(revenue_month, revenue_month_retention, tax_rate)
+            # tax = calculate_tax(revenue_month, revenue_month_retention, tax_rate)
         except ValueError:
             error = "Please supply both first and last name"
 
         else:
-            return render_template('thank-you.html', data=tax_rate[0], data_retention=tax_rate[1], tax=tax)
+            return 'ola'#render_template('thank-you.html', data=values[0], data_retention=values[1], tax=values[2])
 
 
     return render_template('simple_calc.html', message=error)
-
-def link_calculator(revenues_twelve_months, attchament_choose,  payroll_twelve_months, revenue_month):
-    tax_rate_calculation = SimplesTaxCalculator(revenues_twelve_months, attchament_choose, payroll_twelve_months, revenue_month)
-    tax_rate = (tax_rate_calculation.get_effective_rate())
-    return tax_rate
-
-def calculate_tax(revenue_month, revenue_month_retention, tax_rate):
-    tax_rate_retention = float(tax_rate[0]) - (float(tax_rate[0]) * float(tax_rate[1]))
-    print(tax_rate_retention)
-    
-    tax_without_retention = (revenue_month - revenue_month_retention) * (float(tax_rate[0])/100)
-    tax_with_retention = revenue_month_retention * (tax_rate_retention / 100)
-    tax = format(tax_without_retention + tax_with_retention, '.2f')
-    return tax
-    
-
 
 # Run the application
 if __name__ == '__main__':
