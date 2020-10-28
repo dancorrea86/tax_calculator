@@ -39,7 +39,7 @@ def simple_calc():
             error = "Please supply both first and last name"
 
         else:
-            return 'ola'#render_template('thank-you.html', data=values[0], data_retention=values[1], tax=values[2])
+            return render_template('thank-you.html', data=values[0], data_retention=values[1], tax=values[2])
 
 
     return render_template('simple_calc.html', message=error)
