@@ -56,7 +56,7 @@ class SimplesTaxCalculator():
         return effective_rate_with_retention
 
     def calculate_tax(self):
-        tax_without_retention = ( self.revenue_month - self.revenue_month_retention ) * self.effective_rate
+        tax_without_retention = self.revenue_month * self.effective_rate
 
         tax_with_retention = self.revenue_month_retention * self.effective_rate_with_retention
 

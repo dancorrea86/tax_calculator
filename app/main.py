@@ -36,7 +36,7 @@ def simple_calc():
 
             # tax = calculate_tax(revenue_month, revenue_month_retention, tax_rate)
         except ValueError:
-            error = "Please supply both first and last name"
+            error = "Por favor, preencha todos os campos"
 
         else:
             return render_template('thank-you.html', data=values[0], data_retention=values[1], tax=values[2])
